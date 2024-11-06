@@ -1,0 +1,46 @@
+.pane{
+	
+	-fx-background-color: purple;
+	-fx-padding: 20;
+	
+}
+
+Label{
+	
+	-fx-font-family: "Arial";
+	-fx-font-size: 16px;
+	-fx-text-fill: white;
+	
+}
+
+TextField, PasswordField{
+	
+	-fx-background-color: purple;
+	-fx-font-size: 14px;
+	-fx-text-fill: white;
+	-fx-border-color: white;
+	-fx-border-radius: 20px;
+	
+}
+
+.correo{
+	
+	-fx-text-fill: skyblue;
+	
+}
+
+.escuela{
+	
+	-fx-text-fill: yellow;
+	
+}
+
+Button{
+	
+	-fx-border-color: white;
+	-fx-border-radius: 20px;
+	-fx-background-color: purple;
+	-fx-font-size: 14px;
+	-fx-text-fill: white;
+	
+}

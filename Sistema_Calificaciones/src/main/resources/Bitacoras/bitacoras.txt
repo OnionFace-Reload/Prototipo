@@ -1,0 +1,5 @@
+30/Octubre/2024
+
+Se esta probando la conexion de las bases de datos al programa, ademas se desarrollo un "menu" simple
+para poder a crear una cuenta o iniciar la cuenta, los diseños de los demas menus se estaran platicando
+con el equipo.

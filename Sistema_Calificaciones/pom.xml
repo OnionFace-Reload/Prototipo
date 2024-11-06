@@ -1,0 +1,151 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.prototipos.sistema</groupId>
+	<artifactId>Sistema_Calificaciones</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+
+	</properties>
+
+	<dependencies>
+
+		<!--Dependencias de ApachePOI Excel-->
+		<dependency>
+
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.3.0</version>
+
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.3.0</version>
+
+		</dependency>
+
+		<!--Dependencias de MySQL-->
+		<dependency>
+
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version>
+
+		</dependency>
+
+		<!--Dependencias de JavaFX-->
+
+		<dependency>
+
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>24-ea+5</version>
+
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-graphics</artifactId>
+			<version>24-ea+5</version>
+
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-base</artifactId>
+			<version>24-ea+5</version>
+
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-swing</artifactId>
+			<version>24-ea+5</version>
+
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>24-ea+5</version>
+
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-web</artifactId>
+			<version>24-ea+5</version>
+
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-media</artifactId>
+			<version>24-ea+5</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>com.apache.poi</groupId>
+			<artifactId>ApachePOIExcel</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<!--Plugins para javafx-->
+
+	<build>
+
+		<plugins>
+
+			<plugin>
+
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.8</version>
+				<configuration>
+
+					<mainClass>com.application.App</mainClass>
+
+				</configuration>
+
+			</plugin>
+
+			<!--<plugin>
+			
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.4.1</version>
+				<configuration>
+				
+					<archive>
+					
+						<addClasspath>true</addClasspath>
+						<classpathPrefix>lib/</classpathPrefix>
+						<mainClass>com.application.Application</mainClass>
+					
+					</archive>
+				
+				</configuration>
+			
+			</plugin>-->
+
+		</plugins>
+
+	</build>
+
+</project>
