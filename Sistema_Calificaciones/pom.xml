@@ -98,12 +98,6 @@
 			<version>24-ea+5</version>
 
 		</dependency>
-
-		<dependency>
-			<groupId>com.apache.poi</groupId>
-			<artifactId>ApachePOIExcel</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 	<!--Plugins para javafx-->

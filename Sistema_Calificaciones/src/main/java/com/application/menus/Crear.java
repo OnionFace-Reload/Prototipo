@@ -1,9 +1,8 @@
 package com.application.menus;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.ScaleTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.application.widgets.Widget;
+import com.application.widgets.WidgetButton;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,15 +14,33 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class Crear extends Scene{
+	
+	private Stage stage;
+	private VBox vbox;
+	
+	private Button atras, crear;
 	
 	public Crear(Stage stage) {
 		super(new StackPane(), 700, 600);
 		
-		StackPane pane = (StackPane) getRoot();
-		pane.getStyleClass().add("pane");
+		this.stage = stage;
+		
+		init();
+		
+		getStylesheets().add(getClass().getResource("/css/crear.css").toExternalForm());
+		
+	}
+	
+	private void scenes() {
+		
+		Sesion sesion = new Sesion(stage);
+		Widget.widgetTransition(stage, 500, this, sesion);
+		
+	}
+	
+	private void init() {
 		
 		Label usser = new Label("Nombre del Profesor:");
 		Label email = new Label("Correo electronico:");
@@ -44,76 +61,30 @@ public class Crear extends Scene{
 		escuela.setPromptText("Nombre en mayusculas o siglas en mayusculas");
 		escuela.getStyleClass().add("escuela");
 		
-		VBox vbox = new VBox(15, usser, nombre, email, correo, pass, contra, school, escuela);
+		vbox = new VBox(15, usser, nombre, email, correo, pass, contra, school, escuela);
 		
-		Button atras = crearBoton("Regresar", e -> {
+		atras = WidgetButton.widgetButton("Regresar", "button", e -> {
 			
-			FadeTransition cambio = new FadeTransition(Duration.millis(500), this.getRoot());
-			cambio.setFromValue(1.0);
-			cambio.setToValue(0.0);
-			cambio.setOnFinished(event -> {
-				
-				Sesion sesion = new Sesion(stage);
-				stage.setScene(sesion);
-				
-			});
-			
-			cambio.play();
+			scenes();
 			
 		});
-		Button crear = crearBoton("Crear cuenta", null);
+		
+		crear = WidgetButton.widgetButton("Crear cuenta", "button", null);
+		
+		panels();
+		
+	}
+	
+	private void panels() {
+		
+		StackPane pane = (StackPane) getRoot();
+		pane.getStyleClass().add("pane");
 		
 		HBox hbox = new HBox(atras, new Region(), crear);
 		hbox.setHgrow(hbox.getChildren().get(1), Priority.ALWAYS);
 		
 		vbox.getChildren().add(hbox);
 		pane.getChildren().add(vbox);
-		getStylesheets().add(getClass().getResource("/css/crear.css").toExternalForm());
-		
-	}
-	
-	private Button crearBoton(String text, EventHandler<ActionEvent> action) {
-		
-		Button button = new Button(text);
-		button.getStyleClass().add("button");
-		
-		ScaleTransition Transicion = new ScaleTransition(Duration.millis(100), button);
-		
-		button.setOnMouseEntered(e -> {
-			
-			Transicion.setToX(1.1);
-			Transicion.setToY(1.1);
-			Transicion.play();
-			
-		});
-		
-		button.setOnMouseExited(e -> {
-			
-			Transicion.setToX(1.0);
-			Transicion.setToY(1.0);
-			Transicion.play();
-			
-		});
-		
-		button.setOnMousePressed(e -> {
-			
-			Transicion.setToX(1.0);
-			Transicion.setToY(1.0);
-			Transicion.play();
-			
-		});
-		
-		button.setOnMouseReleased(e -> {
-			
-			Transicion.setToX(1.1);
-			Transicion.setToY(1.1);
-			Transicion.play();
-			
-		});
-		
-		button.setOnAction(action);
-		
-		return button;
 		
 	}
 

@@ -1,6 +1,6 @@
 package com.application;
 
-import com.application.menus.Sesion;
+import com.application.menus.Menu;
 
 import como.base.Conexion;
 import javafx.application.Application;
@@ -12,8 +12,11 @@ public class App extends Application{
 	
 	public void start(Stage primaryStage){
 		
-		primaryStage.setTitle("Sistema de Control de Calificaciones");
-		primaryStage.setScene(new Sesion(primaryStage));
+		primaryStage.setTitle("Prototipo-C");
+		primaryStage.setScene(new Menu(primaryStage));
+		
+		primaryStage.setFullScreen(true);
+		
 		primaryStage.show();
 		
 	}

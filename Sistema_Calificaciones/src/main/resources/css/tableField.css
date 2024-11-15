@@ -1,0 +1,38 @@
+TableView{
+	
+	-fx-background-color: purple;
+	
+}
+
+.column{
+	
+	-fx-background-color: purple;
+	
+}
+
+.table-cell{
+	
+	-fx-background-color: RGB(85, 0, 85);
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-border-color: white;
+	-fx-border-width: 0 1px 2px 0;
+	-fx-padding: 10px;
+	-fx-alignment: CENTER;
+	
+}
+
+.table-view, .table-view:focused{
+	
+	-fx-background-color: RGB(85, 0, 85);
+	-fx-background-insets: -1.4, 0, 1;
+	-fx-background-radius: 1.4, 0, 0;
+	
+}
+
+.table-view .column-header .label{
+	
+	-fx-background-color: purple;
+	-fx-text-fill: white;
+	
+}

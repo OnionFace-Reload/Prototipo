@@ -1,9 +1,8 @@
 package com.application.menus;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.ScaleTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.application.widgets.Widget;
+import com.application.widgets.WidgetButton;
+
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,95 +11,66 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class Sesion extends Scene{
+	
+	private Stage stage;
+	
+	private Label lbl1, lbl2;
+	private Button iniciar, crear;
+	
+	private Region region;
 	
 	public Sesion(Stage stage) {
 		super(new VBox(10), 700, 600);
 		
-		VBox layout = (VBox) getRoot();
-		layout.getStyleClass().add("vbox");
+		this.stage = stage;
 		
-		layout.setAlignment(Pos.CENTER);
+		init();
 		
-		Label lbl1 = new Label("Bienvenid@ a la aplicacion Sistema de Control de Calificacion");
+		getStylesheets().add(getClass().getResource("/css/sesion.css").toExternalForm());
+		
+	}
+	
+	private void scenes() {
+		
+		Crear sesion = new Crear(stage);
+		Widget.widgetTransition(stage, 500, this, sesion);
+		
+	}
+	
+	private void init() {
+		
+		lbl1 = new Label("Bienvenid@ a la aplicacion Sistema de Control de Calificacion");
 		lbl1.getStyleClass().add("title");
 		
-		Label lbl2 = new Label("Para comenzar a trabajar debes de iniciar sesion, o crear una cuenta");
+		lbl2 = new Label("Para comenzar a trabajar debes de iniciar sesion, o crear una cuenta");
 		lbl2.getStyleClass().add("info");
 		
-		Region region = new Region();
+		region = new Region();
 		VBox.setVgrow(region, Priority.ALWAYS);
 		
-		Button iniciar = crearBoton("Iniciar sesion", null);
-		Button crear = crearBoton("Crear sesion", e -> {
+		iniciar = WidgetButton.widgetButton("Iniciar sesion", "button", null);
+		crear = WidgetButton.widgetButton("Crear sesion", "button", e -> {
 			
-			FadeTransition cambio = new FadeTransition(Duration.millis(500), this.getRoot());
-			cambio.setFromValue(1.0);
-			cambio.setToValue(0.0);
-			cambio.setOnFinished(event -> {
-				
-				Crear crearSesion = new Crear(stage);
-				stage.setScene(crearSesion);
-				
-			});
-			
-			cambio.play();
+			scenes();
 			
 		});
 		
 		iniciar.getStyleClass().add("iniciar");
 		crear.getStyleClass().add("crear");
 		
-		layout.getChildren().addAll(lbl1, lbl2, region, crear, iniciar);
-		
-		getStylesheets().add(getClass().getResource("/css/sesion.css").toExternalForm());
+		panels();
 		
 	}
 	
-	private Button crearBoton(String text, EventHandler<ActionEvent> action) {
+	private void panels() {
 		
-		Button button = new Button(text);
-		button.getStyleClass().add("button");
+		VBox layout = (VBox) getRoot();
+		layout.getStyleClass().add("vbox");
+		layout.setAlignment(Pos.CENTER);
+		layout.getChildren().addAll(lbl1, lbl2, region, crear, iniciar);
 		
-		ScaleTransition Transicion = new ScaleTransition(Duration.millis(100), button);
-		
-		button.setOnMouseEntered(e -> {
-			
-			Transicion.setToX(1.1);
-			Transicion.setToY(1.1);
-			Transicion.play();
-			
-		});
-		
-		button.setOnMouseExited(e -> {
-			
-			Transicion.setToX(1.0);
-			Transicion.setToY(1.0);
-			Transicion.play();
-			
-		});
-		
-		button.setOnMousePressed(e -> {
-			
-			Transicion.setToX(1.0);
-			Transicion.setToY(1.0);
-			Transicion.play();
-			
-		});
-		
-		button.setOnMouseReleased(e -> {
-			
-			Transicion.setToX(1.1);
-			Transicion.setToY(1.1);
-			Transicion.play();
-			
-		});
-		
-		button.setOnAction(action);
-		
-		return button;
 		
 	}
 
